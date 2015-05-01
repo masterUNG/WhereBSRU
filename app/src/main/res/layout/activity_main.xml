@@ -8,4 +8,27 @@
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="BSRU"
+            android:onClick="clickBSRU"
+            android:id="@+id/button"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Where are You ?"
+            android:onClick="clickWhereAreYou"
+            android:id="@+id/button2"
+            android:layout_weight="1" />
+    </LinearLayout>
+
 </RelativeLayout>

@@ -1,9 +1,11 @@
 package appewtc.masterung.wherebsru;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +14,23 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }   //onCreate
+
+    public void clickBSRU(View view) {
+        myIntent(13.732566, 100.489392);
+    }
+
+    private void myIntent(double douLat, double douLng) {
+
+        //Intent to MapsActivity
+        Intent objIntent = new Intent(MainActivity.this, MapsActivity.class);
+        objIntent.putExtra("Lat", douLat);
+        objIntent.putExtra("Lng", douLng);
+        startActivity(objIntent);
+    }
+
+    public void clickWhereAreYou(View view) {
+
     }
 
     @Override
@@ -35,4 +54,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}   // Main Class
