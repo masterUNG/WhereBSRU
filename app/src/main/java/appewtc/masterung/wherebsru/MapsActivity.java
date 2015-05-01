@@ -27,6 +27,29 @@ public class MapsActivity extends FragmentActivity {
         setUpMapIfNeeded();
     }   // onCreate
 
+    private void selectMapType() {
+
+        int intMyMapType = getIntent().getExtras().getInt("MapType");
+        switch (intMyMapType) {
+            case 1:
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                break;
+            case 2:
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                break;
+            case 3:
+                mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                break;
+            case 4:
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                break;
+            default:
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                break;
+        }
+
+    }
+
     private void createCenterMap() {
 
         double douLat = getIntent().getExtras().getDouble("Lat");
@@ -58,6 +81,9 @@ public class MapsActivity extends FragmentActivity {
 
         //Create Map
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLatLng, 15));
+
+        //Select MapType
+        selectMapType();
 
     }   // setUpMap
 }
