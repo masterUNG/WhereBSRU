@@ -1,5 +1,6 @@
 package appewtc.masterung.wherebsru;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -9,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity {
 
@@ -103,7 +106,51 @@ public class MapsActivity extends FragmentActivity {
         //Create Maker
         createMaker();
 
+        //Create Polyline
+        createPolyline();
+
+        //Create Polygon
+        createPolygon();
+
+        //Click on Map
+        clickOnMap();
+
     }   // setUpMap
+
+    private void clickOnMap() {
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                mMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title("Latitude = " + Double.toString(latLng.latitude))
+                        .snippet("Longtitude = " + Double.toString(latLng.longitude) + "\n" + "Test"));
+            }
+        });
+    }
+
+    private void createPolygon() {
+        PolygonOptions objPolygonOptions = new PolygonOptions();
+        objPolygonOptions.add(btsWongLatLng)
+                .add(greatMomumentLatLng)
+                .add(bsruLatLng)
+                .add(btsPonimitLat)
+                .add(btsWongLatLng)
+                .strokeWidth(5)
+                .strokeColor(Color.MAGENTA)
+                .fillColor(Color.argb(70, 142, 192, 67))
+                .zIndex(15);
+        mMap.addPolygon(objPolygonOptions);
+    }
+
+    private void createPolyline() {
+        PolylineOptions objPolylineOptions = new PolylineOptions();
+        objPolylineOptions.add(centerLatLng)
+                .add(btsWongLatLng).add(greatMomumentLatLng)
+                .add(bsruLatLng).width(5).color(Color.BLUE)
+                .zIndex(16);
+        mMap.addPolyline(objPolylineOptions);
+    }
 
     private void createMaker() {
 
