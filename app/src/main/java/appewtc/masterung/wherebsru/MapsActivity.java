@@ -6,12 +6,15 @@ import android.support.v4.app.FragmentActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private LatLng centerLatLng;
+    private LatLng centerLatLng, greatMomumentLatLng,
+                    btsWongLatLng, btsPonimitLat;
 
 
     @Override
@@ -22,10 +25,21 @@ public class MapsActivity extends FragmentActivity {
         //Create Center Map
         createCenterMap();
 
+        //Create LatLng
+        createLatLng();
+
 
 
         setUpMapIfNeeded();
     }   // onCreate
+
+    private void createLatLng() {
+
+        greatMomumentLatLng = new LatLng(13.726111, 100.493100);
+        btsWongLatLng = new LatLng(13.721046, 100.495310);
+        btsPonimitLat = new LatLng(13.719232, 100.486040);
+
+    }
 
     private void selectMapType() {
 
@@ -85,5 +99,17 @@ public class MapsActivity extends FragmentActivity {
         //Select MapType
         selectMapType();
 
+        //Create Maker
+        createMaker();
+
     }   // setUpMap
+
+    private void createMaker() {
+
+        mMap.addMarker(new MarkerOptions().position(centerLatLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)).title("ราชภัฎบ้านสมเด็จเจ้าพระยา").snippet("คือสถาบันการการศึกษา ของชาติ"));
+        mMap.addMarker(new MarkerOptions().position(greatMomumentLatLng).title("อนุสาวรี พระเจ้าตากสิก มหาราช").snippet("วงเวียนใหญ่"));
+        mMap.addMarker(new MarkerOptions().position(btsWongLatLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.build4)));
+        mMap.addMarker(new MarkerOptions().position(btsPonimitLat));
+
+    }
 }

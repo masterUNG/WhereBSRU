@@ -3,10 +3,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/bg28">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -29,6 +27,56 @@
             android:onClick="clickWhereAreYou"
             android:id="@+id/button2"
             android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:id="@+id/textView"
+            android:textSize="@dimen/h1"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latitude"
+            android:id="@+id/textView2"
+            android:textSize="@dimen/h2"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtLat"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Longtitude"
+            android:id="@+id/textView4"
+            android:textSize="@dimen/h2"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtLong"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold"
+            android:textColor="#ffffffff" />
     </LinearLayout>
 
 </RelativeLayout>
