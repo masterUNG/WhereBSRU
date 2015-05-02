@@ -14,7 +14,7 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private LatLng centerLatLng, greatMomumentLatLng,
-                    btsWongLatLng, btsPonimitLat;
+                    btsWongLatLng, btsPonimitLat, bsruLatLng, userLatLng;
 
 
     @Override
@@ -38,6 +38,7 @@ public class MapsActivity extends FragmentActivity {
         greatMomumentLatLng = new LatLng(13.726111, 100.493100);
         btsWongLatLng = new LatLng(13.721046, 100.495310);
         btsPonimitLat = new LatLng(13.719232, 100.486040);
+        bsruLatLng = new LatLng(13.732566, 100.489392);
 
     }
 
@@ -106,10 +107,11 @@ public class MapsActivity extends FragmentActivity {
 
     private void createMaker() {
 
-        mMap.addMarker(new MarkerOptions().position(centerLatLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)).title("ราชภัฎบ้านสมเด็จเจ้าพระยา").snippet("คือสถาบันการการศึกษา ของชาติ"));
+        mMap.addMarker(new MarkerOptions().position(bsruLatLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)).title("ราชภัฎบ้านสมเด็จเจ้าพระยา").snippet("คือสถาบันการการศึกษา ของชาติ"));
         mMap.addMarker(new MarkerOptions().position(greatMomumentLatLng).title("อนุสาวรี พระเจ้าตากสิก มหาราช").snippet("วงเวียนใหญ่"));
         mMap.addMarker(new MarkerOptions().position(btsWongLatLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.build4)));
         mMap.addMarker(new MarkerOptions().position(btsPonimitLat));
+        mMap.addMarker(new MarkerOptions().position(centerLatLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.friend)));
 
     }
 }

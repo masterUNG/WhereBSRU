@@ -165,6 +165,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void clickWhereAreYou(View view) {
 
+        double douUserLat = Double.parseDouble(txtLat.getText().toString());
+        double douUserLng = Double.parseDouble(txtLng.getText().toString());
+        myIntent(douUserLat, douUserLng);
+
     }
 
     @Override
